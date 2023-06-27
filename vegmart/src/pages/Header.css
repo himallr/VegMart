@@ -1,0 +1,61 @@
+.topname{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    background-color: rgb(243, 0, 0);
+    height: 50px;
+    padding: 10px;
+}
+
+.topname > .top1{
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+    font-variant: small-caps;
+    padding-bottom: 0;
+}
+
+.topname > .top1,.top2{
+    display: flex;
+
+}
+img{
+    height: 50px;
+    width: 50px;
+}
+
+
+.topname > .top2 > input{
+    border-radius: 10px;
+    border: 0;
+    padding: 0px 50px;
+}
+
+.typesof{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(155, 0, 0);
+}
+
+.typesof > select{
+    padding: 10px;
+    background-color: rgb(155, 0, 0);
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border: 0;;
+}
+
+.typesof>select>option{
+    background-color: white;
+    color: black;
+}
+
+select:hover{
+    text-decoration: underline;
+}
+
+button{
+    border: 0;
+    background: none;
+}
