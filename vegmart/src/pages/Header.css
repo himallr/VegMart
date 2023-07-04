@@ -7,6 +7,18 @@
     padding: 10px;
 }
 
+.dropdown{
+    background-color: #dc3545;
+}
+
+.dropdown > button{
+    padding: 10px 111px;
+}
+
+.dropdown > div > a{
+    padding: 10px 111px;
+}
+
 .topname > .top1{
     font-size: 50px;
     font-family: Arial, Helvetica, sans-serif;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Axios from "axios";
 import "./SignIn.css";
 import { Link } from "react-router-dom";
@@ -9,8 +9,6 @@ function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirm, setConfirmPassword] = useState("");
-
-    const [employeeList, setEmployeeList] = useState([]);
 
     const submitOnClick = () => {
         Axios.post('http://localhost:3001/api/create',
@@ -30,6 +28,7 @@ function SignIn() {
                         onChange={(event) => {
                             setName(event.target.value);
                         }}
+                        required
                     />
                     <label>Email:</label>
                     <input
@@ -37,6 +36,7 @@ function SignIn() {
                         onChange={(event) => {
                             setEmail(event.target.value);
                         }}
+                        required
                     />
                     <label>Password:</label>
                     <input
@@ -44,6 +44,7 @@ function SignIn() {
                         onChange={(event) => {
                             setPassword(event.target.value);
                         }}
+                        required
                     />
                     <label>Confirm Password:</label>
                     <input
@@ -51,9 +52,9 @@ function SignIn() {
                         onChange={(event) => {
                             setConfirmPassword(event.target.value);
                         }}
+                        required
                     />
-                    <Link to="/"><button className="btn btn-danger" onClick={submitOnClick}>SignUp</button></Link>
-                    {/* <Link to="/Feedback">Feedback</Link> */}
+                    <Link to="/LogIn"><button className="btn btn-danger" onClick={submitOnClick}>SignUp</button></Link>
                 </div>
             </div>
         </section>

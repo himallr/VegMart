@@ -13,6 +13,8 @@ import grains from './card3page/GrainsTypes';
 import Grain from './card3page/Grains';
 import Feedback from './Feedback';
 import LogIn from './signinpages/Login';
+import Shipping from './SippingDetails';
+import Stripe from './Stripe';
 
 function App() {
 
@@ -31,7 +33,7 @@ function App() {
     };
     const onRemove = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
-        if (exist.qty == 1) {
+        if (exist.qty === 1) {
             setCartItems(cartItems.filter((x) => x.id !== product.id));
         }
         else {
@@ -43,14 +45,16 @@ function App() {
         <div>
             <Header countCartItems={cartItems.length} />
             <Routes>
-                <Route path="/" element={<Main />}></Route>
                 <Route path='/SignIn' element={<SignIn />}></Route>
                 <Route path='/Groceries' element={<Grocery onAdd={onAdd} products={groc}/>}></Route>
                 <Route path='/Phones' element={<Phones onAdd={onAdd} products={products} />}></Route>
                 <Route path='/Grain' element={<Grain onAdd={onAdd} products={prods} />}></Route>
                 <Route path='/Cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />}></Route>
                 <Route path='/Feedback' element={<Feedback />}></Route>
+                <Route path='/Shipping' element={<Shipping />}></Route>
                 <Route path='/LogIn' element={<LogIn />}></Route>
+                <Route path='/Stripe' element={<Stripe />}></Route>
+                <Route path="/" element={<Main />}></Route>
             </Routes>
             <Footer />
         </div>

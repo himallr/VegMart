@@ -1,11 +1,13 @@
-import { CardHeader, Card, Avatar, CardMedia, CardContent, Typography, Button } from "@mui/material";
+import { CardHeader, Card, Avatar, CardMedia, CardContent, Typography } from "@mui/material";
 import { red } from '@mui/material/colors';
 import React from "react";
 import { Link } from "react-router-dom";
 
 function Card4(props) {
 
-    const { products, onAdd } = props;
+    // const { onAdd } = { name, image, price, weight };
+    
+    const {products, onAdd} = props;
 
     return (
         <div style={{ paddingLeft: "20" }}>
@@ -15,10 +17,10 @@ function Card4(props) {
                         <CardHeader
                             avatar={
                                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                    {products.id}
+                                    {props.id}
                                 </Avatar>
                             }
-                            title={products.name}
+                            title={props.name}
                         />
                         <CardMedia
                             component="img"
@@ -26,23 +28,21 @@ function Card4(props) {
                                 display: "flex", marginLeft: "auto",
                                 marginRight: "auto", maxWidth: 200
                             }}
-                            image={products.image}
+                            image={props.image}
                             alt="tomatoes"
                         />
                         <CardContent>
                             <Typography variant="body2" color="text.secondary">
-                                {products.name}
+                                {props.name}
                             </Typography>
                             <Typography variant="body2" color="text.secondary">
-                                Rs.{products.price}{products.weight}
+                                Rs.{props.price} {props.weight}
                             </Typography>
                         </CardContent>
                         <div style={{ textAlign: "center" }}>
                             <Link to="/Cart"><button onClick={() => onAdd(products)} className="btn btn-danger mx-5 my-2">Add to Cart</button></Link>
-                            
                         </div>
                     </Card>
-                    <Link to="/Cart">Cart</Link>
                 </div>
             </div>
         </div>

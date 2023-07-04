@@ -3,3 +3,7 @@
     width: 220px;
     border-radius: 20px;
 }
+
+.container {
+    overflow-x: auto;
+}
