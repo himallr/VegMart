@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 function Cart(props) {
     const { cartItems, onAdd, onRemove } = props;
-    alert(cartItems.name)
     const priceItem = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const taxItem = priceItem * 0.10;
     const shippingPrice = priceItem > 200 ? 0 : 70;
@@ -34,47 +33,48 @@ function Cart(props) {
                     </div>
                     <hr></hr> */}
                     {cartItems.map((item) => (
-                        <div className="container">
+                        <div className="container-fluid">
                             <div key={item.id} className="row">
-                                <div className="col-md-2 text-center"><img src={item.image} alt="image1" width={50} height={100}></img></div>
-                                <div className="col-md-2 h5 mx-4 text-center">{item.name} {item.weight}</div>
+                                <div className="col-md-1 text-center"><img src={require(`./${item.img}`)} alt="image1"></img></div>
+                                <div className="col-md-6 h5 text-center">{item.name} {item.weight}</div>
                                 <div className="col-md-4 ">
-                                    <div style={{ border: "1px solid black" }} className="mx-4">
+                                    <div style={{ border: "2px solid black" }} className="mx-4">
                                         <button onClick={() => onRemove(item)} className="remove px-2">-</button>
                                         {item.qty}
                                         <button onClick={() => onAdd(item)} className="add px-2">+</button>
                                     </div>
 
                                 </div>
-                                <div className="col-md-2 text-right">
+                                <div className="col-md-1 text-right">
                                     {item.qty} x {item.price}
                                 </div>
                             </div>
-                            <hr></hr>
+                            
                         </div>
                     ))}
                 </div>
             </div>
+            <hr></hr>
             {cartItems.length !== 0 && (
                 <>
                     <div className="row">
-                        <div className="col-md-4 h4">Items prices:</div>
-                        <div className="col-md-4 text-right">Rs.{priceItem.toFixed(2)}</div>
+                        <div className="col-md-6 sx-3 h4">Items prices:</div>
+                        <div className="col-md-6 sx-3 text-right">Rs.{priceItem.toFixed(2)}</div>
                     </div>
                     <div className="row">
                         <div className="col-md-6 h4">Tax prices:</div>
-                        <div className="col-2 text-right">Rs.{taxItem.toFixed(2)}</div>
+                        <div className="col-md-6 text-right">Rs.{taxItem.toFixed(2)}</div>
                     </div>
                     <div className="row">
-                        <div className="col-md-6 h4">Shipping Charge(below 2000):</div>
-                        <div className="col-2 text-right">Rs.{shippingPrice.toFixed(2)}</div>
+                        <div className="col-md-6 h4">Shipping Charge(below 200):</div>
+                        <div className="col-md-6 text-right">Rs.{shippingPrice.toFixed(2)}</div>
                     </div>
                     <hr></hr>
                     <div className="row">
                         <div className="col-md-6 h2">Total prices:</div>
-                        <div className="col-2 text-right">Rs.{totalPrice.toFixed(2)}</div>
+                        <div className="col-md-6 text-right">Rs.{totalPrice.toFixed(2)}</div>
                     </div>
-                    <div className="row my-4">
+                    <div className="row my-4 text-align-center">
                         <Link to="/Shipping"><button className="btn btn-outline-danger px-5 py-2" style={{ marginLeft: "25%" }}>Checkout</button></Link>
                     </div>
                 </>

@@ -16,9 +16,9 @@ function Feedback() {
             <div className="row">
                 <div className="col-md-8">
                     <h1>Feedback Form:</h1>
-                    <div className="card">
+                    <div className="card border-0">
                         <div className="card-body my-4">
-                            <textarea rows={5} cols={50} placeholder={"Comment here!"} value={transcript}></textarea><br></br>
+                            <textarea rows={5} cols={100} placeholder={"Comment here!"} value={transcript}></textarea><br></br>
                             <button className="btn btn-primary mx-3" onClick={SpeechRecognition.startListening}>Speak here!</button>
                             <button className="btn btn-primary mx-3" onClick={SpeechRecognition.stopListening}>Stop</button>
                             <button className="btn btn-primary mx-4" onClick={resetTranscript}>Reset</button>

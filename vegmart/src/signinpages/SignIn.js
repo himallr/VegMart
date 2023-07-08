@@ -55,6 +55,10 @@ function SignIn() {
                         required
                     />
                     <Link to="/LogIn"><button className="btn btn-danger" onClick={submitOnClick}>SignUp</button></Link>
+                    <div className="d-flex justify-content-between my-3">
+                        <p className="px-4">Already have an account?</p>
+                        <Link to="/Login" className="text-dark">Login</Link>
+                    </div>
                 </div>
             </div>
         </section>

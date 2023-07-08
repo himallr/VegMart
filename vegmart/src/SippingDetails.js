@@ -1,6 +1,6 @@
 import Axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function Shipping() {
 
@@ -20,10 +20,7 @@ function Shipping() {
     };
 
     return (
-        <div style={{ backgroundColor: "#eee", paddingTop: "120px", paddingBottom: "50px" }}>
-            <div className="d-flex">
-                <button className="btn btn-secondary rounded-circle text-center">1</button><hr></hr>
-            </div>
+        <div style={{ backgroundColor: "#eee", paddingTop: "10px", paddingBottom: "50px" }}>
             <h1 className="text-center my-4">Shipping Details</h1>
             <div className="information">
                 <label>Enter Full Name:</label>
@@ -55,14 +52,15 @@ function Shipping() {
                     onChange={(event) => {
                         setAddress(event.target.value);
                     }}></textarea> */}
-                    <input
+                <input
                     type="text" id="phone" name="address" placeholder="Enter Address"
                     onChange={(event) => {
                         setAddress(event.target.value);
                     }}
                     required
                 />
-                <Link to="/Stripe"><button className="btn btn-outline-danger px-5 py-2" onClick={submitOnClick}>Continue</button></Link>
+                <Link to="/Shipping/Stripe"><button className="btn btn-outline-danger px-5 py-2" onClick={submitOnClick}>Continue</button></Link>
+
             </div>
         </div>
     )

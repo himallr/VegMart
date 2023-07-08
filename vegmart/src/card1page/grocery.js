@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card4 from "./Card4";
-import './Card4.css';
 
 function Grocery(props) {
 
@@ -18,23 +17,19 @@ function Grocery(props) {
     const { products, onAdd } = props;
 
     return (
-        <div className="py-5" id="wrapper" style={{ marginTop: "100px", marginBottom: "50px" }}>
+        <div className="container py-5" style={{ marginTop: "100px", marginBottom: "50px" }}>
             <h1>Here are some Frest Veges Available!</h1>
             <h2>Vegetables</h2>
-            <div style={{ display: "flex", paddingLeft: "50" }}>
-                {/* {products.map((product) =>
-                (
-                    <Card4 key={product.id} products={product} onAdd={onAdd} />
-                )
-                )
-                } */}
+            <div className="row">
                 {
-                items.map((e)=>{
-                    return(
-                        <Card4 id={e.logo} name={e.name} price={e.price} weight={e.weight} img={e.image} onAdd={onAdd}/>
-                    )
-                })
-            }
+                    items.map((e) => {
+                        return (
+                            <div className="col-md-4">
+                                <Card4 id={e.id} logo={e.logo} name={e.name} price={e.price} weight={e.weight} img={e.image} onAdd={onAdd} />
+                            </div>
+                        )
+                    })
+                }
             </div>
         </div>
     )

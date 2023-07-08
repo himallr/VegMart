@@ -24,12 +24,12 @@ const groceries = [
         image: "/images/card1/laptops.jpeg",
         images1: "/images/card2/phone.png",
     },
-    {
-        id: "5",
-        name: "Air Conditioners",
-        image: "/images/card1/ac.jpeg",
-        images1: "/images/card2/watch.png",
-    },
+    // {
+    //     id: "5",
+    //     name: "Air Conditioners",
+    //     image: "/images/card1/ac.jpeg",
+    //     images1: "/images/card2/watch.png",
+    // },
 ];
 
 export default groceries;

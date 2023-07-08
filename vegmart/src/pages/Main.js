@@ -11,9 +11,10 @@ import groceries from "./groceriesTypes";
 import mobile from "./phoneTypes";
 import grainsmain from "./grainsTypes";
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Main(props) {
-    
+
     const slide = [
         { url: [slide1] },
         { url: [slide2] },
@@ -23,22 +24,26 @@ function Main(props) {
 
     // const [page, setPage] = useState("Grains");
 
-    return <div className="py-2" style={{ marginTop: "100px" }}>
-        <div>
-            <SimpleImageSlider width={1519}
-                height={250} images={slide} showBullets={true}
-                showNavs={true} />
-        </div>
-        {/* <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    return (<div className="py-2" style={{ marginTop: "75px" }}>
+        {/* <div className='container-fluid'>
+            <div className='row'>
+                <div className='col-md-12'>
+                    <SimpleImageSlider width={1519}
+                        height={250} images={slide} showBullets={true}
+                        showNavs={true} />
+                </div>
+            </div>
+        </div> */}
+        <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active">
-                    <img className="d-block w-100 h-20" src={slide1} alt="First slide" />
+                    <Link to="/"><img className="image d-block w-100 h-0" src={slide1} alt="First slide" /></Link>
                 </div>
                 <div className="carousel-item">
-                    <img className="d-block w-100 h-50" src={slide2} alt="Second slide" />
+                    <Link to="/phones"><img className="image d-block w-100 h-10" src={slide2} alt="Second slide" /></Link>
                 </div>
                 <div className="carousel-item">
-                    <img className="d-block w-100 h-50" src={slide3} alt="Third slide" />
+                    <Link to="/groceries"><img className="image d-block w-100 h-10" src={slide3} alt="Third slide" /></Link>
                 </div>
             </div>
             <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -49,68 +54,95 @@ function Main(props) {
                 <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 <span className="sr-only">Next</span>
             </a>
-        </div> */}
+        </div>
         <br></br>
-        <div className="ad mx-3" >
-            <a href="/Phones">
-                <img src={slide2} alt="slide2"></img>
-            </a>
+        <div className="container-fluid" >
+            <div className='row'>
+                <div className='col-md-12'>
+                    <div className='card border-0'>
+                        <div className='card-body'>
+                            <a href="/Phones">
+                                <img className='card-img-top embed-responsive-item' src={slide2} alt="slide2" height={100}></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <hr></hr>
-        <div className="cards ">
-            {groceries.map(typesFruit => (
-                <Card id={typesFruit.id} name={typesFruit.name} img={typesFruit.image} />
-            )
-            )
-            }
-            {/* {
-                items.map((e)=>{
-                    return(
-                        <Card name={e.name} price={e.price} weight={e.weight} img={e.image} />
+        <h1 className="mx-3">Check out!</h1>
+        <div className="container">
+            <div className="row">
+                {groceries.map(typesFruit => {
+                    return (
+                        <div className='col-md-4'>
+                            <Card id={typesFruit.id} name={typesFruit.name} img={typesFruit.image} />
+                        </div>
                     )
-                })
-            } */}
-            
+                }
+                )
+                }
+            </div>
         </div>
         <hr></hr>
         <h1 className="mx-3">Streams on to go</h1>
-        <div className="cards">
-            {mobile.map(typesMobile =>
-            (
-                <Card2 name={typesMobile.name} img={typesMobile.image1} range={typesMobile.range} />
-            )
-            )
-            }
-        </div>-
+        <div className="container">
+            <div className="row">
+                {mobile.map(typesMobile => {
+                    return (
+                        <div className="col-md-4">
+                            <Card2 name={typesMobile.name} img={typesMobile.image1} range={typesMobile.range} />
+                        </div>
+                    )
+                })}
+            </div>
+        </div>
         <br></br>
-        <div className="ad mx-3">
-            <a href="/Groceries">
-                <img src={slide3} alt="slide3"></img>
-            </a>
+        <div className="container-fluid" >
+            <div className='row'>
+                <div className='col-md-12'>
+                    <div className='card border-0'>
+                        <div className='card-body'>
+                            <a href="/Phones">
+                                <img className='card-img-top embed-responsive-item' src={slide3} alt="slide2" height={100}></img>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <h1 className="mx-3 pt-4">Trending now!</h1>
-        <div className="cards">
-            {groceries.map(typesMob =>
-            (
-                <Card3 img={typesMob.images1} />
-            )
-            )
-            }
+        <div className="container">
+            <div className="row">
+                {groceries.map(typesMob => {
+                    return (
+                        <div className='col-md-4'>
+                            <Card3 img={typesMob.images1} />
+                        </div>
+                    );
+                }
+                )
+                }
+            </div>
         </div>
         <hr></hr>
         <h1 className="mx-3">Grains and Wheats</h1>
-        <div className="cards">
-            {grainsmain.map(typesFoot =>
-            (
-                <Card2 name={typesFoot.name} img={typesFoot.image} />
-            )
-            )
-            }
+        <div className="container">
+            <div className='row'>
+                {grainsmain.map(typesFoot => {
+                    return (
+                        <div className='col-md-4'>
+                            <Card2 name={typesFoot.name} img={typesFoot.image} />
+                        </div>
+                    )
+                }
+                )
+                }
+            </div>
         </div>
         <hr></hr>
-
     </div>
-
+    );
 }
 
 export default Main;

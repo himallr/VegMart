@@ -1,7 +1,0 @@
-#wrapper {
-    overflow-x: scroll;
-}
-
-#wrapper::-webkit-scrollbar{
-    width: 0;
-}

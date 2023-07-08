@@ -20,27 +20,19 @@ function Phones(props) {
     const { products, onAdd } = props;
 
     return (
-        <div className="py-5" id="wrapper" style={{ marginTop: "100px", marginBottom: "50px" }}>
+        <div className="constainer py-5 px-5" style={{ marginTop: "100px", marginBottom: "50px" }}>
             <h1>Here are some SmartPhones Available!</h1>
             <h2>SmartPhones</h2>
-            <div style={{ display: "flex", paddingLeft: "50" }}>
-                {products.map((product,idx) =>
-                (
-                    <div key={idx}>
-                    <Card4 key={product.id} products={product} onAdd={onAdd} />
-                    </div>
-                )
-                )
-                }
-                {/* {
+            <div className="row">
+                {
                     items.map((e, idx) => {
                         return (
-                            <div key={idx}>
-                                <Card4 id={e.logo} name={e.name} price={e.price} img={e.image} onAdd={onAdd} />
+                            <div className="col-md-3">
+                                <Card4 id={e.id} logo={e.logo} name={e.name} price={e.price} img={e.image} onAdd={onAdd} />
                             </div>
                         )
                     })
-                } */}
+                }
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 const foot=[
     {
         name: "Men's Footwears",
-        image: "/images/footwears/casualshoes.webp",
+        image: "/footwears/casualshoes.webp",
     },
     {
         name: "Women Footwears",

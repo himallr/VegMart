@@ -55,6 +55,22 @@ app.post("/api/create", (req, res) => {
 
 });
 
+app.post("/shipping", (req, res) => {
+
+    const user = req.body.name;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const address = req.body.address;
+
+    const query1 = "INSERT INTO shipping (name,email,phone,address) VALUES (?,?,?,?)";
+    db.query(query1, [user, email, phone, address], (err, result) => {
+        res.send(result);
+    });
+
+    console.log("hello");
+
+});
+
 const verifyUser = (req, res, next) => {
     console.log(req.cookies.token);
     const token = req.cookies.token;
