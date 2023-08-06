@@ -27,7 +27,7 @@ function Phones(props) {
                 {
                     items.map((e, idx) => {
                         return (
-                            <div className="col-md-3">
+                            <div className="col-md-4">
                                 <Card4 id={e.id} logo={e.logo} name={e.name} price={e.price} img={e.image} onAdd={onAdd} />
                             </div>
                         )

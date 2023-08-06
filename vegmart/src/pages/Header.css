@@ -36,33 +36,6 @@ img{
     width: 50px;
 }
 
-
-.topname > .top2 > input{
-    border-radius: 10px;
-    border: 0;
-    padding: 0px 50px;
-}
-
-.typesof{
-    display: flex;
-    justify-content: space-around;
-    background-color: rgb(155, 0, 0);
-}
-
-.typesof > select{
-    padding: 10px;
-    background-color: rgb(155, 0, 0);
-    color: white;
-    font-weight: bold;
-    font-size: 15px;
-    border: 0;;
-}
-
-.typesof>select>option{
-    background-color: white;
-    color: black;
-}
-
 select:hover{
     text-decoration: underline;
 }

@@ -18,7 +18,7 @@ function Grocery(props) {
 
     return (
         <div className="container py-5" style={{ marginTop: "100px", marginBottom: "50px" }}>
-            <h1>Here are some Frest Veges Available!</h1>
+            <h1>Here are some Fresh Vegies Available!</h1>
             <h2>Vegetables</h2>
             <div className="row">
                 {

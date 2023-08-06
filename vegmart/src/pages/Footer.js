@@ -1,6 +1,7 @@
 import React from "react";
 import './Footer.css';
 import { Link } from "react-router-dom";
+import logo from "../images/logo1.jpg";
 
 function Footer() {
     return (
@@ -10,9 +11,13 @@ function Footer() {
                     <div className="container text-center text-md-start mt-5">
                         <div className="row mt-3">
                             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                <h4 className="text-uppercase fw-bold mb-4">
-                                    <i className="fas fa-gem me-3 text-secondary"></i>VEGMART
-                                </h4>
+                                <Link to="/" className="navbar-brand text-secondary">
+                                    <img className="rounded-circle my-3" src={logo}></img>
+
+                                    <h4 className="text-uppercase fw-bold mb-4">
+                                        <i className="fas fa-gem me-3 text-secondary">VEGMART</i>
+                                    </h4>
+                                </Link>
                                 <p>
                                     Thanks for Visiting our site !Hope you have purchased items and you like to get items through our site.
                                 </p>

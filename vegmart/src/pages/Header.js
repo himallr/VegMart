@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import SearchResult from "./SearchResults";
+import logo from "../images/logo1.jpg";
 
 function Header(props) {
 
@@ -12,6 +13,7 @@ function Header(props) {
     const [name, setName] = useState('')
     const [message, setMessage] = useState('')
 
+    Axios.defaults.withCredentials = true;
     useEffect(() => {
         Axios.get('http://localhost:3001').then((res) => {
             console.log(res.data.Status)
@@ -86,6 +88,7 @@ function Header(props) {
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                <img className="rounded-circle ml-3 mr-2" src={logo}></img>
                 <Link className="navbar-brand text-white" to="/" onClick={handleHome}><strong>VEGMART</strong></Link>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -105,7 +108,7 @@ function Header(props) {
                 </div>
                 <form className="d-flex flex-column form-inline my-2 my-lg-0">
                     <input className="form-control mr-sm-2" type="search" onChange={(e) => searchHandle(e.target.value)} placeholder="Search here..." aria-label="Search" />
-                    <SearchResult results={result} />
+                    <SearchResult className="position-absolute" results={result} />
                     {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
                 </form>
                 {
@@ -120,7 +123,7 @@ function Header(props) {
                         </div>
                         :
                         <div>
-                            <Link className="text-decoration-none mx-3" onClick={handleSignIn} to="/LogIn">
+                            <Link className="text-decoration-none navbar-brand text-white mx-3" onClick={handleSignIn} to="/LogIn">
                                 Login
                             </Link>
                         </div>

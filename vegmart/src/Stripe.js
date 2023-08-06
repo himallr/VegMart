@@ -1,19 +1,32 @@
-import { Axios } from "axios";
+import Axios from "axios";
 import React, { useState } from "react";
 import StripeCheckout from 'react-stripe-checkout';
 import GooglePayButton from '@google-pay/button-react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-function Stripe() {
+function Stripe(props) {
+    //toast.configure()
 
     const [product] = useState({
         name: "Smaple",
-        price: 200,
+        price: props.price,
         description: "Sample"
     })
 
-    async function handleToken(token, addresses) {
-        const response = await Axios.post('http://localhost:3001/checkout', (token, product))
+    Axios.defaults.withCredentials = true;
 
+    async function handleToken(token, addresses) {
+        const response = await Axios.post('http://localhost:3001/checkout', {token, product})
+
+        console.log(response.status);
+
+        if(response.status === 200){
+            toast("Success Payment",{type: "Success"});
+        }
+        else{
+            toast("Payment is not completed",{type:"error"})
+        }
     }
 
     return (
@@ -56,7 +69,7 @@ function Stripe() {
                                     totalPriceStatus: 'FINAL',
                                     totalPriceLabel: 'Total',
                                     totalPrice: '100.00',
-                                    currencyCode: 'USD',
+                                    currencyCode: 'INR',
                                     countryCode: 'US'
                                 }
                             }}
@@ -70,7 +83,7 @@ function Stripe() {
                     <div>
                         <StripeCheckout className="center my-4" stripeKey="pk_test_51NPHokSD1SZTUDhPlFvyRedL6P3jRsbhzdwOJCzJYSJBZU3yLV3EyJT8kUdLHgsmY7RCBfhozIrieXO9M778HrLH00Lfyi2SAN"
                             token={handleToken}
-                            amount={product.price * 100}
+                            amount={props.price}
                             name={product.name}
                             billingAddress
                         />

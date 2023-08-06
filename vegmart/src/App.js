@@ -9,14 +9,15 @@ import Grocery from './card1page/grocery';
 import vegies from './card1page/GroceryTypes';
 import SignIn from './signinpages/SignIn';
 import Cart from './card1page/Cart';
-import grains from './card3page/GrainsTypes';
-import Grain from './card3page/Grains';
+import Grain from './card3page/Snacks';
 import Feedback from './Feedback';
 import LogIn from './signinpages/Login';
 import Shipping from './SippingDetails';
 import Stripe from './Stripe';
 import ShippingDetail from './SippingDetails';
 import Ship from './Shipping';
+import Snacks from './card3page/Snacks';
+import Grains from './card1page/Grains';
 
 function App() {
 
@@ -33,7 +34,6 @@ function App() {
 
     const { products } = phones;
     const { groc } = vegies;
-    const { prods } = grains;
     const [cartItems, setCartItems] = useState([]);
     const onAdd = (product) => {
         const exist = cartItems.find((x) => x.id === product.id);
@@ -54,6 +54,10 @@ function App() {
         }
     };
 
+    let i, total_price = 0;
+    for (i = 0; i < cartItems.length; i++) {
+        total_price = total_price + Number(cartItems[i].price);
+    }
     return (
         <div>
             <Header countCartItems={cartItems.length} />
@@ -61,12 +65,13 @@ function App() {
                 <Route path='/SignIn' element={<SignIn />}></Route>
                 <Route path='/Groceries' element={<Grocery onAdd={onAdd} products={items} />}></Route>
                 <Route path='/Phones' element={<Phones onAdd={onAdd} products={products} />}></Route>
-                <Route path='/Grain' element={<Grain onAdd={onAdd} products={prods} />}></Route>
+                <Route path='/Snack' element={<Snacks onAdd={onAdd} />}></Route>
+                <Route path='/grains' element={<Grains onAdd={onAdd} />}></Route>
                 <Route path='/Cart' element={<Cart cartItems={cartItems} onAdd={onAdd} onRemove={onRemove} />}></Route>
                 <Route path='/Feedback' element={<Feedback />}></Route>
                 <Route path='/Shipping/*' element={<Ship />}>
                     <Route index element={<Shipping />}></Route>
-                    <Route path='Stripe' element={<Stripe />} />
+                    <Route path='Stripe' element={<Stripe price={total_price} />} />
                     <Route path='ShippingDet' element={<Shipping />}></Route>
                 </Route>
                 <Route path='/LogIn' element={<LogIn />}></Route>

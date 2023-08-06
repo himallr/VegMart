@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Cart(props) {
+    let f = 0;
     const { cartItems, onAdd, onRemove } = props;
     const priceItem = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
     const taxItem = priceItem * 0.10;
@@ -25,19 +26,22 @@ function Cart(props) {
                                 <span className="mx-5"><Link className="text-decoration-none text-dark" to="/">Conitnue Shopping</Link></span>
                             </div>
                         </div>}
-                    {/* <div className="row mx-0">
-                        <h4 className="col-md-2"></h4>
-                        <h4 className="col-md-4">Products</h4>
-                        <h4 className="col-md-3">Items</h4>
-                        <h4 className="col-md-3">Price</h4>
-                    </div>
-                    <hr></hr> */}
                     {cartItems.map((item) => (
                         <div className="container-fluid">
+                            {/* {
+                                f === 0 &&
+                                <div className="row mx-0">
+                                    {f=1}
+                                    <h4 className="col-md-1"></h4>
+                                    <h4 className="col-md-6">Products</h4>
+                                    <h4 className="col-md-4">Items</h4>
+                                    <h4 className="col-md-1">Price</h4>
+                                </div>
+                            } */}
                             <div key={item.id} className="row">
-                                <div className="col-md-1 text-center"><img src={require(`./${item.img}`)} alt="image1"></img></div>
-                                <div className="col-md-6 h5 text-center">{item.name} {item.weight}</div>
-                                <div className="col-md-4 ">
+                                <div className="col-md-2 text-center"><img src={item.img} alt="image1"></img></div>
+                                <div className="col-md-5 h5 text-center">{item.name} {item.weight}</div>
+                                <div className="col-md-4 text-center">
                                     <div style={{ border: "2px solid black" }} className="mx-4">
                                         <button onClick={() => onRemove(item)} className="remove px-2">-</button>
                                         {item.qty}
@@ -45,11 +49,11 @@ function Cart(props) {
                                     </div>
 
                                 </div>
-                                <div className="col-md-1 text-right">
+                                <div className="col-md-2 text-right">
                                     {item.qty} x {item.price}
                                 </div>
                             </div>
-                            
+                            <br></br>
                         </div>
                     ))}
                 </div>
@@ -66,7 +70,7 @@ function Cart(props) {
                         <div className="col-md-6 text-right">Rs.{taxItem.toFixed(2)}</div>
                     </div>
                     <div className="row">
-                        <div className="col-md-6 h4">Shipping Charge(below 200):</div>
+                        <div className="col-md-6 h4">Shipping Charge:</div>
                         <div className="col-md-6 text-right">Rs.{shippingPrice.toFixed(2)}</div>
                     </div>
                     <hr></hr>

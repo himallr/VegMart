@@ -25,11 +25,12 @@ function Card4(props) {
                         <CardMedia
                             component="img"
                             sx={{
+                                height: 140,
                                 display: "", marginLeft: "auto",
                                 marginRight: "auto", maxWidth: 100
                             }}
-                            image={require(`./${props.img}`)}
-                            alt="tomatoes"
+                            image={props.img}
+                            alt="images"
                         />
                         <CardContent>
                             <Typography variant="body2" color="text.secondary">
