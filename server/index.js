@@ -32,6 +32,42 @@ app.get('/groceries', (req, res) => {
     });
 });
 
+app.get('/snacks', (req, res) => {
+    const query1 = "SELECT * FROM snacks";
+    db.query(query1, (err, result) => {
+        res.send(result);
+    });
+});
+
+app.get('/card1', (req, res) => {
+    const query1 = "SELECT * FROM card1";
+    db.query(query1, (err, result) => {
+        res.send(result);
+    });
+});
+
+app.get('/card2', (req, res) => {
+    const query1 = "SELECT * FROM card2";
+    db.query(query1, (err, result) => {
+        res.send(result);
+    });
+});
+
+app.get('/card3', (req, res) => {
+    const query1 = "SELECT * FROM card3";
+    db.query(query1, (err, result) => {
+        res.send(result);
+    });
+});
+
+
+app.get('/grains', (req, res) => {
+    const query1 = "SELECT * FROM grains";
+    db.query(query1, (err, result) => {
+        res.send(result);
+    });
+});
+
 app.get('/smartphones', (req, res) => {
     const query1 = "SELECT * FROM smartphones";
     db.query(query1, (err, result) => {
@@ -72,9 +108,9 @@ app.post("/shipping", (req, res) => {
 });
 
 const verifyUser = (req, res, next) => {
-    console.log(req.cookies.token);
+    //console.log(req.cookies.token);
     const token = req.cookies.token;
-    console.log(token);
+    //console.log(token);
     if (!token) {
         return res.json({ Message: "Need token please provide" })
     }
@@ -105,7 +141,7 @@ app.post("/login", (req, res) => {
         }
         if (result.length > 0) {
             const name = result[0].name;
-            const token = jwt.sign({ name }, "our-jsonwebtoken-secret-key", { expiresIn: '1h' });
+            const token = jwt.sign({ name }, "our-jsonwebtoken-secret-key", { expiresIn: '1d' });
             res.cookie('token', token);
             return res.json({ Status: "Success" });
         }
@@ -122,23 +158,50 @@ app.get('/get', (req, res) => {
     });
 });
 
-app.post('/checkout', (req, res) => {
+app.post('/checkout', async (req, res) => {
     console.log(req.body);
     let err, status
     try {
         const { product, token } = req.body
 
-        const customer = stripe.customers.create({
+        const customer = await stripe.customers.create({
             email: token.email,
             source: token.id,
         })
 
         const key = uuid()
+
+        const charge = await stripe.charges.create(
+            {
+                amount : product.price * 100,
+                currency: "usd",
+                customer: customer.id,
+                reciept_email: token.email,
+                description : `Purchased the ${product.name}`,
+                shipping: {
+                    name: token.card.name,
+                    address: {
+                        line1: token.card.address_line1,
+                        line2: token.card.address_line2,
+                        city: token.card.address_city,
+                        country: token.card.address_country,
+                        postal_code: token.card.address_zip,
+                    },
+                },
+            },
+            {
+                key,
+            }
+        );
+        console.log("charge" , {charge});
+        status="success";
     }
     catch (err) {
-        console.log(err);
+        //console.log(err);
+        status="Failure"
     }
-    console.log(response.status)
+    res.json({err,status});
+    console.log(res.status)
 })
 
 app.get('/logout', (req, res) => {
