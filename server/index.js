@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://veg-mart-5u48.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true
 }));
