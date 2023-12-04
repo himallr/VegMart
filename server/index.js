@@ -133,6 +133,7 @@ app.get('/', verifyUser, (req, res) => {
 app.post("/login", (req, res) => {
     const user = req.body.user;
     const pass = req.body.password;
+    try{
 
     const query1 = "SELECT * FROM signin where username = ? AND password = ?";
     db.query(query1, [user, pass], (err, result) => {
@@ -149,6 +150,10 @@ app.post("/login", (req, res) => {
             return res.json({ message: "Wrong username/Password!" });
         }
     });
+    }catch (error) {
+        console.error('Error in login:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+      }
 })
 
 app.get('/get', (req, res) => {
