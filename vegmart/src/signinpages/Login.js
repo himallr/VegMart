@@ -18,7 +18,7 @@ function LogIn() {
     const submitOnClick = (e) => {
         // console.log("hello");
         e.preventDefault();
-        Axios.post('https://veg-mart-5u48.vercel.app/login',values).then(response => {
+        Axios.post('https://veg-mart-server.vercel.app/login',values).then(response => {
                 if(response.data.Status === "Success"){
                     navigate('/')
                 }
