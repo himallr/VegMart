@@ -22,6 +22,7 @@ import Grains from './card1page/Grains';
 function App() {
 
     const [items, setItems] = useState([]);
+    axios.defaults.withCredentials=true;
 
     useEffect(() => {
         const getItems = async () => {
