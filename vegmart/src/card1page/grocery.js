@@ -7,7 +7,7 @@ function Grocery(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('https://veg-mart-5u48.vercel.app/groceries');
+            const res = await fetch('https://veg-mart-server.vercel.app/groceries');
             const getdata = await res.json();
             setItems(getdata);
         }
