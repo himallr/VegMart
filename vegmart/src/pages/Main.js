@@ -24,7 +24,7 @@ function Main(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('https://veg-mart-5u48.vercel.app/card1');
+            const res = await fetch('https://veg-mart-server.vercel.app/card1');
             const getdata = await res.json();
             setItems(getdata);
         }
@@ -35,7 +35,7 @@ function Main(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('https://veg-mart-5u48.vercel.app/card2');
+            const res = await fetch('https://veg-mart-server.vercel.app/card2');
             const getdata = await res.json();
             setCard2(getdata);
         }
@@ -46,7 +46,7 @@ function Main(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('https://veg-mart-5u48.vercel.app/card3');
+            const res = await fetch('https://veg-mart-server.vercel.app/card3');
             const getdata = await res.json();
             setCard3(getdata);
         }
