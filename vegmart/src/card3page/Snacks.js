@@ -7,7 +7,7 @@ function Snacks(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('http://localhost:3001/snacks');
+            const res = await fetch('https://veg-mart-5u48.vercel.app/snacks');
             const getdata = await res.json();
             setItems(getdata);
         }
