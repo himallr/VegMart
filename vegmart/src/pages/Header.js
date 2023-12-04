@@ -15,7 +15,7 @@ function Header(props) {
 
     Axios.defaults.withCredentials = true;
     useEffect(() => {
-        Axios.get('http://localhost:3001').then((res) => {
+        Axios.get('https://veg-mart-5u48.vercel.app').then((res) => {
             console.log(res.data.Status)
             if (res.data.Status === "Success") {
                 setAuth(true);
@@ -33,7 +33,7 @@ function Header(props) {
     const [result, setResults] = useState([]);
 
     const fetchData = (value) => {
-        fetch("http://localhost:3001/groceries")
+        fetch("https://veg-mart-5u48.vercel.app/groceries")
             .then((res) => res.json())
             .then(json => {
                 const results = json.filter((user) => {
@@ -51,7 +51,7 @@ function Header(props) {
     }
 
     const handleLogout = () => {
-        Axios.get('http://localhost:3001/logout').then(res => {
+        Axios.get('https://veg-mart-5u48.vercel.app/logout').then(res => {
             console.log(res.data.Status)
             if (res.data.Status === "Success") {
                 window.location.reload(true);
