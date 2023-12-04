@@ -13,7 +13,7 @@ function Shipping() {
     const [address, setAddress] = useState("");
 
     const submitOnClick = () => {
-        Axios.post('https://veg-mart-5u48.vercel.app/shipping',
+        Axios.post('https://veg-mart-server.vercel.app/shipping',
             { name: name, email: email, phone: phone, address: address }).then(() => {
                 console.log("submitted");
             });
