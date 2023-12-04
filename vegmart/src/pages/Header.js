@@ -15,7 +15,7 @@ function Header(props) {
 
     Axios.defaults.withCredentials = true;
     useEffect(() => {
-        Axios.get('https://veg-mart-5u48.vercel.app').then((res) => {
+        Axios.get('https://veg-mart-server.vercel.app').then((res) => {
             console.log(res.data.Status)
             if (res.data.Status === "Success") {
                 setAuth(true);
