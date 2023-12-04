@@ -7,7 +7,7 @@ function Grains(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('http://localhost:3001/grains');
+            const res = await fetch('veg-mart-5u48.vercel.app/grains');
             const getdata = await res.json();
             setItems(getdata);
         }
