@@ -18,7 +18,7 @@ function LogIn() {
     const submitOnClick = (e) => {
         // console.log("hello");
         e.preventDefault();
-        Axios.post('http://localhost:3001/login',values).then(response => {
+        Axios.post('https://veg-mart-5u48.vercel.app/login',values).then(response => {
                 if(response.data.Status === "Success"){
                     navigate('/')
                 }
@@ -56,26 +56,6 @@ function LogIn() {
             </form>
             <h5 className="text-center text-uppercase">{login}</h5>
             <div className="align-items-center justify-content-center">
-                {/* <table className="border text-center">
-                    <tr className="border">
-                        <td>Username</td>
-                        <td>Email</td>
-                        <td>Password</td>
-                        <td>Confirm_Password</td>
-                    </tr>
-                    {
-                        items.map((getitem) => (
-                            // <div className="row">
-                            //     <div className="col-sm-6">
-                            <tr> 
-                                <td className="card-title">{getitem.name}</td>
-                                <td className="card-title">{getitem.price}</td>
-                                <td className="card-title">{getitem.weight}</td>
-                                <td className="card-title">{getitem.image}</td>
-                            </tr>
-                        ))
-                    }
-                </table> */}
             </div>
 
         </section>
