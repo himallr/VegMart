@@ -9,13 +9,13 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 // app.use(cors());
-app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
     origin: ["https://veg-mart-frontend.vercel.app"],
     methods: ["POST", "GET"],
     credentials: true
 }));
+app.use(express.json());
 app.use(cookieParser());
 
 const db = mysql.createConnection({
