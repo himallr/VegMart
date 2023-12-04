@@ -8,7 +8,7 @@ function Phones(props) {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('https://veg-mart-5u48.vercel.app/smartphones');
+            const res = await fetch('https://veg-mart-server.vercel.app/smartphones');
             const getdata = await res.json();
 
             setItems(getdata);
