@@ -11,7 +11,7 @@ function SignIn() {
     const [confirm, setConfirmPassword] = useState("");
 
     const submitOnClick = () => {
-        Axios.post('https://veg-mart-5u48.vercel.app/api/create',
+        Axios.post('https://veg-mart-server.vercel.app/api/create',
             { user: user, email: email, password: password, confirm_password: confirm }).then(() => {
                 console.log("submitted");
             });
