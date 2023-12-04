@@ -17,7 +17,7 @@ function Stripe(props) {
     Axios.defaults.withCredentials = true;
 
     async function handleToken(token, addresses) {
-        const response = await Axios.post('http://localhost:3001/checkout', {token, product})
+        const response = await Axios.post('https://veg-mart-server.vercel.app/checkout', {token, product})
 
         console.log(response.status);
 
