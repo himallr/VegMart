@@ -18,11 +18,12 @@ import ShippingDetail from './SippingDetails';
 import Ship from './Shipping';
 import Snacks from './card3page/Snacks';
 import Grains from './card1page/Grains';
+import Axios from "axios";
 
 function App() {
 
     const [items, setItems] = useState([]);
-    axios.defaults.withCredentials=true;
+    Axios.defaults.withCredentials=true;
 
     useEffect(() => {
         const getItems = async () => {
