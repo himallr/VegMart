@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         const getItems = async () => {
-            const res = await fetch('http://localhost:3001/groceries');
+            const res = await fetch('https://veg-mart-server.vercel.app/groceries');
             const getdata = await res.json();
             setItems(getdata);
         }
