@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-    origin: ["https://veg-mart-frontend.vercel.app"],
+    origin: ["https://veg-mart-frontend.vercel.app/"],
     methods: ["POST", "GET"],
     credentials: true
 }));
